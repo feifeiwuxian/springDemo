@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"></properties>
+
+    <typeAliases>
+        <typeAlias type="com.wf.domain.User" alias="user"></typeAlias>
+        <typeAlias type="com.wf.domain.Order" alias="order"></typeAlias>
+        <typeAlias type="com.wf.domain.Role" alias="role"></typeAlias>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.wf.handler.DtateTypeHandler"/>
+    </typeHandlers>
+    
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--设置sql方言-->
+            <property name="helperDialect" value="mysql"></property>
+        </plugin>
+    </plugins>
+    <!--数据源环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/wf/mapper/userMapper.xml"></mapper>
+        <mapper resource="com/wf/mapper/orderMapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>
