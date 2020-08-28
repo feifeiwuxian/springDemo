@@ -1,10 +1,7 @@
 package com.wf.dao;
 
 import com.wf.domain.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +17,20 @@ public interface UserMapper {
     public User findById(int id);
     @Select("select * from user")
     public List<User> findAll();
+
+    @Select("select * from user")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(
+                    property = "orderList",
+                    column = "id", // 根据哪个字段去查
+                    javaType = List.class,
+                    many = @Many(select = "com.wf.dao.OrderMapper.findByUid")
+            )
+    }
+
+    )
+    public List<User> findUserAndOderAll();
 }
