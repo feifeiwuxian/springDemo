@@ -33,4 +33,18 @@ public interface UserMapper {
 
     )
     public List<User> findUserAndOderAll();
+
+    @Select("SELECT * FROM USER")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(
+                    property = "roleList",
+                    column = "id",
+                    javaType = List.class,
+                    many = @Many(select = "com.wf.dao.RoleMapper.findByUid")
+            )
+    })
+    List<User> findUserAndRoleAll();
 }
