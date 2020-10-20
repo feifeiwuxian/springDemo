@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: wangfei
@@ -9,20 +10,28 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+    </style>
 </head>
 <body>
     <h1>展示帐户数据列表</h1>
-    <table>
+    <table border="1" >
         <tr>
             <th>帐户id</th>
             <th>帐户名称</th>
             <th>帐户金额</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>zhnagsan</td>
-            <td>5000</td>
-        </tr>
+        <c:forEach items="${accountList}" var="account">
+            <tr>
+                <td>${account.id}</td>
+                <td>${account.name}</td>
+                <td>${account.money}</td>
+            </tr>
+        </c:forEach>
     </table>
 </body>
 </html>

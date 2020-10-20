@@ -24,6 +24,10 @@
     </environments>
 
     <!--加载映射-->
+    <!--<mappers>-->
+    <!--<mapper resource="com/wf/mapper/userMapper.xml"></mapper>-->
+    <!--<mapper resource="com/wf/mapper/orderMapper.xml"></mapper>-->
+    <!--</mappers>-->
     <mappers>
         <package name="com.wf.mapper"/>
     </mappers>

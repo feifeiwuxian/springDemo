@@ -17,12 +17,12 @@
       <groupId>org.springframework</groupId>  
       <artifactId>spring-context</artifactId>  
       <version>5.0.5.RELEASE</version> 
-    </dependency>  
-    <dependency> 
-      <groupId>org.aspectj</groupId>  
-      <artifactId>aspectjweaver</artifactId>  
-      <version>1.8.7</version> 
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.14</version>
+    </dependency>
     <dependency> 
       <groupId>org.springframework</groupId>  
       <artifactId>spring-jdbc</artifactId>  
@@ -47,13 +47,16 @@
     <dependency> 
       <groupId>javax.servlet</groupId>  
       <artifactId>servlet-api</artifactId>  
-      <version>2.5</version> 
-    </dependency>  
-    <dependency> 
-      <groupId>javax.servlet.jsp</groupId>  
-      <artifactId>jsp-api</artifactId>  
-      <version>2.0</version> 
-    </dependency>  
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
     <!--mybatis相关-->  
     <dependency> 
       <groupId>org.mybatis</groupId>  

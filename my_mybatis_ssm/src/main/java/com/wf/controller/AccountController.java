@@ -24,6 +24,7 @@ public class AccountController {
     }
 
     // 查询
+    @RequestMapping("/findAll")
     public ModelAndView findAll() {
         List<Account> list = accountService.findAll();
         ModelAndView modelAndView = new ModelAndView();
